@@ -1,0 +1,240 @@
+---
+// Import the necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+
+import { SITE } from "@data/constants";
+
+const pageTitle: string =
+  Astro.currentLocale === "en"
+    ? `Quotes | ${SITE.title}`
+    : `Presupuestos | ${SITE.title}`;
+
+---
+
+<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://reformasqero.com/faqs",
+    url: "https://reformasqero.com/faqs",
+    name: "Presupuestos | Reformas Qero",
+    description:
+      "¿Tiene alguna pregunta o quiere hablar de un proyecto? Póngase en contacto con nosotros y déjenos elaborar la solución perfecta utilizando nuestras herramientas y servicios.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://reformasqero.com",
+      name: "Reformas Qero",
+      description:
+        "Elegir a Qero Reformas y Decoración significa optar por un servicio profesional, personalizado y de calidad con un enfoque en el ahorro y la eficiencia. Transformamos espacios con dedicación y pasión, asegurándonos de que tu hogar sea tan único como tú, y lo hacemos cuidando tu bolsillo. ¡Déjanos ayudarte a hacer realidad la cocina, los muebles y el hogar que siempre soñaste! Contáctanos y descubre por qué somos la mejor opción para tus reformas y proyectos en el hogar.",
+    },
+    inLanguage: "es-ES",
+  }}
+>
+  <section
+    class="mx-auto flex max-w-[85rem] flex-col justify-between px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <h2
+      class="text-center text-xl font-bold text-neutral-800 dark:text-neutral-200 md:text-2xl md:leading-tight"
+    >
+      <Fragment
+        set:html={Astro.currentLocale === "en"
+          ? "Budget calculator"
+          : "Calculadora para tus Presupuestos"}
+      />
+    </h2>
+    <div
+      class="mx-auto my-8 flex min-w-[100%] max-w-screen-md items-start md:min-w-[50%]"
+    >
+      <div class="w-full">
+        <div class="flex w-full items-center">
+          <div
+            id="oneStepNumber"
+            class="mx-[-1px] flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-400"
+          >
+            <span class="text-sm font-bold text-white dark:text-black">1</span>
+          </div>
+          <div
+            id="oneStepBar"
+            class="mx-4 h-[3px] w-full rounded-lg bg-gray-400"
+          >
+          </div>
+        </div>
+        <div class="mr-4 mt-2">
+          <h6 class="text-sm font-bold text-primary-500 dark:text-rose-400">
+            Personal Info
+          </h6>
+          <p class="text-xs text-gray-500 dark:text-white">Completed</p>
+        </div>
+      </div>
+      <div class="w-full">
+        <div class="flex w-full items-center">
+          <div
+            id="twoStepNumber"
+            class="mx-[-1px] flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-400"
+          >
+            <span class="text-sm font-bold text-white dark:text-black">2</span>
+          </div>
+          <div
+            id="twoStepBar"
+            class="mx-4 h-[3px] w-full rounded-lg bg-gray-400"
+          >
+          </div>
+        </div>
+        <div class="mr-4 mt-2">
+          <h6 class="text-sm font-bold text-primary-500 dark:text-rose-400">
+            Education
+          </h6>
+          <p class="text-xs text-gray-500 dark:text-white">Completed</p>
+        </div>
+      </div>
+      <div>
+        <div class="flex items-center">
+          <div
+            id="threeStepNumber"
+            class="mx-[-1px] flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-400"
+          >
+            <span class="text-sm font-bold text-white dark:text-black">3</span>
+          </div>
+        </div>
+        <div class="mt-2">
+          <h6 class="text-sm font-bold text-primary-500 dark:text-rose-400">
+            Review
+          </h6>
+          <p class="text-xs text-gray-500 dark:text-white">Pending</p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mx-auto my-8 flex min-w-[100%] max-w-screen-md items-start md:min-w-[50%]"
+    >
+    </div>
+    <div class="mx-auto my-8 flex min-w-[50%] max-w-screen-md items-start">
+      <div class="w-full">
+        <div class="flex w-full items-center justify-between gap-4">
+          <button
+            id="one-b-button"
+            class="hidden w-full min-w-[100px] items-center justify-center gap-x-2 whitespace-nowrap rounded-lg border border-transparent bg-primary-500 p-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-sky-950 focus-visible:ring disabled:pointer-events-none disabled:opacity-50 dark:bg-secondary-500 dark:text-black dark:ring-secondary-500 dark:hover:bg-yellow-200 dark:focus:outline-none dark:focus:ring-1 sm:w-auto"
+            >Regresar1</button
+          >
+          <button
+            id="two-b-button"
+            class="hidden w-full min-w-[100px] items-center justify-center gap-x-2 whitespace-nowrap rounded-lg border border-transparent bg-primary-500 p-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-sky-950 focus-visible:ring disabled:pointer-events-none disabled:opacity-50 dark:bg-secondary-500 dark:text-black dark:ring-secondary-500 dark:hover:bg-yellow-200 dark:focus:outline-none dark:focus:ring-1 sm:w-auto"
+            >Regresar2</button
+          >
+          <button>
+            <button
+              id="one-a-button"
+              class="inline-flex w-full min-w-[100px] items-center justify-center gap-x-2 whitespace-nowrap rounded-lg border border-transparent bg-primary-500 p-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-sky-950 focus-visible:ring disabled:pointer-events-none disabled:opacity-50 dark:bg-secondary-500 dark:text-black dark:ring-secondary-500 dark:hover:bg-yellow-200 dark:focus:outline-none dark:focus:ring-1 sm:w-auto"
+              >Siguiente1</button
+            >
+            <button
+              id="two-a-button"
+              class="hidden w-full min-w-[100px] items-center justify-center gap-x-2 whitespace-nowrap rounded-lg border border-transparent bg-primary-500 p-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-sky-950 focus-visible:ring disabled:pointer-events-none disabled:opacity-50 dark:bg-secondary-500 dark:text-black dark:ring-secondary-500 dark:hover:bg-yellow-200 dark:focus:outline-none dark:focus:ring-1 sm:w-auto"
+              >Siguiente2</button
+            >
+            <button
+              id="three-a-button"
+              class="hidden w-full min-w-[100px] items-center justify-center gap-x-2 whitespace-nowrap rounded-lg border border-transparent bg-primary-500 p-3 text-sm font-bold text-neutral-50 outline-none ring-zinc-500 transition duration-300 hover:bg-sky-950 focus-visible:ring disabled:pointer-events-none disabled:opacity-50 dark:bg-secondary-500 dark:text-black dark:ring-secondary-500 dark:hover:bg-yellow-200 dark:focus:outline-none dark:focus:ring-1 sm:w-auto"
+              >Calcular</button
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    const oneStepNumber = document.getElementById("oneStepNumber");
+    const twoStepNumber = document.getElementById("twoStepNumber");
+    const threeStepNumber = document.getElementById("threeStepNumber");
+    const oneStepBar = document.getElementById("oneStepBar");
+    const twoStepBar = document.getElementById("twoStepBar");
+
+    //   Botones
+    const oneBeforeBtn = document.getElementById("one-b-button");
+    const twoBeforeBtn = document.getElementById("two-b-button");
+
+    const oneAfterBtn = document.getElementById("one-a-button");
+    const twoAfterBtn = document.getElementById("two-a-button");
+    const threeAfterBtn = document.getElementById("three-a-button");
+
+    oneAfterBtn.addEventListener("click", () => {
+      oneStepNumber.classList.add("bg-orange-400");
+      oneStepNumber.classList.add("dark:bg-secondary-500");
+      oneStepBar.classList.add("bg-orange-400");
+      oneStepBar.classList.add("dark:bg-secondary-500");
+
+      oneBeforeBtn.classList.add("inline-flex");
+      oneBeforeBtn.classList.remove("hidden");
+
+      oneAfterBtn.classList.remove("inline-flex");
+      oneAfterBtn.classList.add("hidden");
+
+      twoAfterBtn.classList.add("inline-flex");
+      twoAfterBtn.classList.remove("hidden");
+    });
+
+    twoAfterBtn.addEventListener("click", () => {
+      twoStepNumber.classList.add("bg-orange-400");
+      twoStepNumber.classList.add("dark:bg-secondary-500");
+      twoStepBar.classList.add("bg-orange-400");
+      twoStepBar.classList.add("dark:bg-secondary-500");
+
+      oneBeforeBtn.classList.add("hidden");
+      oneBeforeBtn.classList.remove("inline-flex");
+
+      twoBeforeBtn.classList.add("inline-flex");
+      twoBeforeBtn.classList.remove("hidden");
+
+      twoAfterBtn.classList.remove("inline-flex");
+      twoAfterBtn.classList.add("hidden");
+
+      threeAfterBtn.classList.add("inline-flex");
+      threeAfterBtn.classList.remove("hidden");
+    });
+
+    threeAfterBtn.addEventListener("click", () => {
+      threeStepNumber.classList.add("bg-orange-400");
+      threeStepNumber.classList.add("dark:bg-secondary-500");
+    });
+
+    oneBeforeBtn.addEventListener("click", () => {
+      oneStepNumber.classList.remove("bg-orange-400");
+      oneStepNumber.classList.remove("dark:bg-secondary-500");
+      oneStepBar.classList.remove("bg-orange-400");
+      oneStepBar.classList.remove("dark:bg-secondary-500");
+
+      oneBeforeBtn.classList.add("hidden");
+      oneBeforeBtn.classList.remove("inline-flex");
+
+      oneAfterBtn.classList.remove("hidden");
+      oneAfterBtn.classList.add("inline-flex");
+
+      twoAfterBtn.classList.add("hidden");
+      twoAfterBtn.classList.remove("inline-flex");
+    });
+
+    twoBeforeBtn.addEventListener("click", () => {
+      twoStepNumber.classList.remove("bg-orange-400");
+      twoStepNumber.classList.remove("dark:bg-secondary-500");
+      twoStepBar.classList.remove("bg-orange-400");
+      twoStepBar.classList.remove("dark:bg-secondary-500");
+      threeStepNumber.classList.remove("bg-orange-400");
+      threeStepNumber.classList.remove("dark:bg-secondary-500");
+
+      oneBeforeBtn.classList.add("inline-flex");
+      oneBeforeBtn.classList.remove("hidden");
+
+      twoBeforeBtn.classList.add("hidden");
+      twoBeforeBtn.classList.remove("inline-flex");
+
+      twoAfterBtn.classList.remove("hidden");
+      twoAfterBtn.classList.add("inline-flex");
+
+      threeAfterBtn.classList.add("hidden");
+      threeAfterBtn.classList.remove("inline-flex");
+    });
+  </script>
+</MainLayout>
