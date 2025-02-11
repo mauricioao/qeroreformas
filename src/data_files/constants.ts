@@ -1,7 +1,7 @@
 import ogImageSrc from "@images/social.png";
 
 export const SITE = {
-  title: "Reformas Qero",
+  title: "Qero Reformas",
   tagline: "REFORMAS Y DECORACIÓN",
   description: "Brindamos soluciones modernas, eficientes y adaptadas a las necesidades de cada familia, con un firme compromiso con la calidad, la satisfacción del cliente y la formación constante de nuestro equipo.",
   description_short: "En QERO Reformas y Decoración transformamos hogares en espacios únicos y funcionales. Somos una empresa especializada en reformas de cocina, diseño de mobiliario personalizado y servicios integrales (manitas) en la comunidad de Madrid y alrededores.",

@@ -11,11 +11,11 @@ import { SITE } from "@data/constants";
 // Get all blogs post in French and sort them based on publish date
 
 const frenchBlogEntries = await getCollection("blog", ({ id }) => {
-  return id.startsWith("fr/");
+  return id.startsWith("en/");
 });
 
 const frenchInsightsEntries = await getCollection("insights", ({ id }) => {
-  return id.startsWith("fr/");
+  return id.startsWith("en/");
 });
 
 const blogPosts: CollectionEntry<"blog">[] = frenchBlogEntries.sort(
@@ -40,22 +40,22 @@ const secondSubTitle: string =
 const pageTitle: string = `Blog | ${SITE.title}`;
 ---
 
-<MainLayout lang="fr"
+<MainLayout lang="en"
   title={pageTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/fr/blog",
-    "url": "https://screwfast.uk/fr/blog",
-    "name": "Blog | ScrewFast",
+    "@id": "https://qeroreformas.com/en/blog",
+    "url": "https://qeroreformas.com/en/blog",
+    "name": "Blog | Qero Reformas",
     "description": "Restez informé des dernières tendances et évolutions dans le secteur de la construction avec les analyses de l'équipe d'experts de ScrewFast.",
     "isPartOf": {
       "@type": "WebSite",
-      "url": "https://screwfast.uk/fr",
+      "url": "https://qeroreformas.com/en",
       "name": "ScrewFast",
       "description": "ScrewFast propose des outils matériels de premier ordre et des services de construction experts pour répondre à tous vos besoins de projet."
     },
-    "inLanguage": "fr"
+    "inLanguage": "en"
   }}
 >
   <section
