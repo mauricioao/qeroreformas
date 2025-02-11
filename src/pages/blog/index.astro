@@ -3,27 +3,27 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 import CardBlog from "@components/ui/cards/CardBlog.astro";
 import CardBlogRecent from "@components/ui/cards/CardBlogRecent.astro";
-import CardInsight from "@components/ui/cards/CardInsight.astro";
+// import CardInsight from "@components/ui/cards/CardInsight.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
 // Get all blogs post in English and sort them based on publish date
 
-const englishBlogEntries = await getCollection("blog", ({ id }) => {
+const spanishBlogEntries = await getCollection("blog", ({ id }) => {
   return id.startsWith("es/");
 });
 
-const englishInsightsEntries = await getCollection("insights", ({ id }) => {
-  return id.startsWith("es/");
-});
+// const englishInsightsEntries = await getCollection("insights", ({ id }) => {
+//   return id.startsWith("es/");
+// });
 
-const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
+const blogPosts: CollectionEntry<"blog">[] = spanishBlogEntries.sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 // Get all insights posts
-const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
+// const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
 
 
 // Define variables for page content
@@ -31,10 +31,10 @@ const title: string =
   "Qero Transforma: Inspiración, Consejos y Proyectos para tu Hogar";
 const subTitle: string =
   "Descubre ideas, tendencias y soluciones prácticas para reformar y construir espacios que cuenten tu historia.";
-const secondTitle: string =
-  "Perspectivas Qero: Expertos en Reformas y Construcción";
-const secondSubTitle: string =
-  "Análisis, datos y reflexiones de nuestros profesionales para ayudarte a tomar decisiones inteligentes en tus proyectos.s";
+// const secondTitle: string =
+//   "Perspectivas Qero: Expertos en Reformas y Construcción";
+// const secondSubTitle: string =
+//   "Análisis, datos y reflexiones de nuestros profesionales para ayudarte a tomar decisiones inteligentes en tus proyectos.s";
 
 const pageTitle: string = `Blog | ${SITE.title}`;
 ---
@@ -44,14 +44,14 @@ const pageTitle: string = `Blog | ${SITE.title}`;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://reformasqero.com/faqs",
-    url: "https://reformasqero.com/faqs",
+    "@id": "https://qeroreformas.com/faqs",
+    url: "https://qeroreformas.com/faqs",
     name: "Blog | Qero Reformas",
     description:
       "¿Tiene alguna pregunta o quiere hablar de un proyecto? Póngase en contacto con nosotros y déjenos elaborar la solución perfecta utilizando nuestras herramientas y servicios.",
     isPartOf: {
       "@type": "WebSite",
-      url: "https://reformasqero.com",
+      url: "https://qeroreformas.com",
       name: "Qero Reformas",
       description:
         "Elegir a Qero Reformas y Decoración significa optar por un servicio profesional, personalizado y de calidad con un enfoque en el ahorro y la eficiencia. Transformamos espacios con dedicación y pasión, asegurándonos de que tu hogar sea tan único como tú, y lo hacemos cuidando tu bolsillo. ¡Déjanos ayudarte a hacer realidad la cocina, los muebles y el hogar que siempre soñaste! Contáctanos y descubre por qué somos la mejor opción para tus reformas y proyectos en el hogar.",
@@ -87,7 +87,7 @@ const pageTitle: string = `Blog | ${SITE.title}`;
         blogPosts.map((blogEntry, index) => {
           if (index % 2 === 0 && index !== 0) 
           return (
-              <section class="col-span-2">
+              <section class="col-span-1 lg:col-span-2">
                 <CardBlogRecent blogEntry={blogEntry} />
               </section>
             );
@@ -104,7 +104,7 @@ const pageTitle: string = `Blog | ${SITE.title}`;
     <CardBlogRecent blogEntry={mostRecentPost} />
   </section> -->
   <!--Insights section-->
-  <section
+  <!-- <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
     <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
@@ -124,5 +124,5 @@ const pageTitle: string = `Blog | ${SITE.title}`;
         ))
       }
     </div>
-  </section>
+  </section> -->
 </MainLayout>

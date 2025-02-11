@@ -14,7 +14,7 @@ interface Props {
 ---
 
 <!-- Root container, which is divided into 2 grid column layout for larger screens -->
-<div class="grid gap-8 sm:grid-cols-2 sm:items-center">
+<div class="grid gap-8 grid-cols-1 sm:grid-cols-2 sm:items-center">
   <!-- Container for the blog post's cover image -->
   <div class="sm:order-2">
     <div class="relative rounded-lg pt-[50%] sm:pt-[100%]">
@@ -24,7 +24,7 @@ interface Props {
         alt={blogEntry.data.cardImageAlt}
         draggable={"false"}
         loading={"eager"}
-        format={"avif"}
+        format={"jpg"}
       />
     </div>
   </div>
@@ -36,7 +36,7 @@ interface Props {
     >
       <a
         class="outline-none ring-zinc-500 transition duration-300 hover:text-orange-400 focus-visible:ring dark:text-neutral-300 dark:ring-zinc-200 dark:hover:text-neutral-50 dark:focus:outline-none"
-        href={recentBlogLocale && recentBlogLocale !== "es" ? `/${recentBlogLocale}/blog/${blogEntry.id.replace(/^es\//, '')}/` : `/blog/${blogEntry.id.replace(/^es\//, '')}/`}
+        href={recentBlogLocale && recentBlogLocale !== "es" ? `/${recentBlogLocale}/blog/${blogEntry.id.replace(/^en\//, '')}/` : `/blog/${blogEntry.id.replace(/^es\//, '')}/`}
       >
         {blogEntry.data.description}
       </a>

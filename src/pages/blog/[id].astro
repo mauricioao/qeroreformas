@@ -5,7 +5,7 @@ import AvatarBlogLarge from "@components/ui/avatars/AvatarBlogLarge.astro";
 import CardRelated from "@components/ui/cards/CardRelated.astro";
 // import Bookmark from "@components/ui/buttons/Bookmark.astro";
 // import SocialShare from "@components/ui/buttons/SocialShare.astro";
-import PostFeedback from "@components/ui/feedback/PostFeedback.astro";
+// import PostFeedback from "@components/ui/feedback/PostFeedback.astro";
 import { Image } from "astro:assets";
 import { capitalize, formatDate } from "@utils/utils";
 import { getCollection } from "astro:content";
@@ -92,14 +92,14 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
                   src={post.data.cardImage}
                   alt={post.data.cardImageAlt}
                   draggable={"false"}
-                  format={"avif"}
+                  format={"jpg"}
                 />
-                <p class="text-pretty text-lg text-neutral-700 dark:text-neutral-300">
+                <p class={`text-pretty text-lg text-neutral-700 dark:text-neutral-300 ${((content).length <= 45 ) ? "font-bold" : ""}`}>
                   {content}
                 </p>
               </>
             ) : (
-              <p class={`text-pretty text-lg text-neutral-700 dark:text-neutral-300 ${((content).length <= 80 ) ? "font-bold" : ""}`}>
+              <p class={`text-pretty text-lg text-neutral-700 dark:text-neutral-300 ${((content).length <= 45 ) ? "font-bold" : ""}`}>
                 {content}
               </p>
             )
@@ -134,11 +134,11 @@ const pageTitle: string = `${post.data.title} | ${SITE.title}`;
         </div> -->
       </div>
     </div>
-    <PostFeedback
+    <!-- <PostFeedback
       title="¿Este articulo fue útil?"
       firstChoice="Si"
       secondChoice="No"
-    />
+    /> -->
   </section>
 
   <!--Related articles section-->

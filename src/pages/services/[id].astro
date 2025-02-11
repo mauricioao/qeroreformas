@@ -7,6 +7,8 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { SITE } from "@data/constants";
 
+import imageNotFound from "@images/image-not-found.webp"
+
 // Global declaration for gsap animation library
 declare global {
   interface Window {
@@ -30,6 +32,15 @@ export async function getStaticPaths() {
 }
 
 const { product } = Astro.props;
+
+const dataSrcL: string[] | [] = Array.from(product.data.specificationsLeft!).map(
+  (s: any) => s.subTitle.src
+);
+const dataSrcR: string[] | [] = Array.from(product.data.specificationsRight!).map(
+  (s: any) => s.subTitle.src
+);
+
+const dataSrc = dataSrcL.concat(dataSrcR) ?? [];
 
 const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 ---
@@ -143,7 +154,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
           <div class="grid w-full grid-cols-1 gap-x-16 md:grid-cols-2">
             <div class="space-y-6">
               {
-                product.data.specificationsLeft.map((spec) => (
+                product.data.specificationsLeft!.map((spec) => (
                   <div>
                     <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
                       {spec.title}
@@ -163,7 +174,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
             {
               product.data.specificationsRight ? (
                 <div class="mt-6 space-y-6 md:ml-auto md:mt-0">
-                  {product.data.specificationsRight?.map((spec) => (
+                  {product.data.specificationsRight!.map((spec) => (
                     <div>
                       <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
                         {spec.title}
@@ -230,7 +241,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
     </div>
   </div>
 
-  <div id="tabs-with-card-3" class="hidden" role="tabpanel">
+  <!-- <div id="tabs-with-card-3" class="hidden" role="tabpanel">
     <div class="mx-auto mb-20 flex w-full md:mb-28 2xl:w-4/5">
       <div
         class="relative left-12 top-12 z-10 overflow-hidden rounded-xl shadow-lg md:left-12 md:top-16 md:-ml-12 lg:ml-0"
@@ -260,7 +271,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
         }
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div
     id="fullscreen-modal"
@@ -280,13 +291,13 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
     </button>
     <button
       id="right-modal"
-      class="absolute right-6 top-1/2 cursor-pointer text-4xl font-extrabold text-white text-shadow-md" 
+      class="text-shadow-md absolute right-6 top-1/2 cursor-pointer text-4xl font-extrabold text-white"
     >
       &rarr;
     </button>
     <button
       id="left-modal"
-      class="absolute left-6 top-1/2 cursor-pointer text-4xl font-extrabold text-white text-shadow-md"
+      class="text-shadow-md absolute left-6 top-1/2 cursor-pointer text-4xl font-extrabold text-white"
     >
       &larr;
     </button>
@@ -432,30 +443,19 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
     });
   });
 </script>
-<script>
+<script define:vars={{ dataSrc, imageNotFound }}>
   document.addEventListener("DOMContentLoaded", () => {
     const images = document.querySelectorAll("img[data-fullscreen-src]");
-    const modal = document.getElementById("fullscreen-modal") as HTMLDivElement;
-    const modalImage = document.getElementById(
-      "fullscreen-image"
-    ) as HTMLImageElement;
-    const closeModalButton = document.getElementById(
-      "close-modal"
-    ) as HTMLButtonElement;
-    const rightModalButton = document.getElementById(
-      "right-modal"
-    ) as HTMLButtonElement;
-    const leftModalButton = document.getElementById(
-      "left-modal"
-    ) as HTMLButtonElement;
+    const modal = document.getElementById("fullscreen-modal");
+    const modalImage = document.getElementById("fullscreen-image");
+    const closeModalButton = document.getElementById("close-modal");
+    const rightModalButton = document.getElementById("right-modal");
+    const leftModalButton = document.getElementById("left-modal");
 
-    const dataSrc: string[] = Array.from(images).map(
-      (img: any) => img.currentSrc
-    );
     let currentIndex = 0;
 
     // Abrir modal al hacer clic en una imagen
-    images.forEach((img: any) => {
+    images.forEach((img) => {
       img.addEventListener("click", () => {
         currentIndex = dataSrc.indexOf(img.currentSrc);
         modalImage.src = img.currentSrc; // Asigna la imagen en alta resolución
@@ -470,14 +470,14 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 
     // Navegar a la imagen siguiente al hacer clic en el botón de derecha
     rightModalButton.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % dataSrc.length;
-      modalImage.src = dataSrc[currentIndex] ?? dataSrc[0];
+      currentIndex = ((currentIndex + 1) > (dataSrc.length - 1)) ? 0 : (currentIndex + 1);
+      modalImage.src = dataSrc[currentIndex] ?? imageNotFound.src;
     });
 
     // Navegar a la imagen anterior al hacer clic en el botón de izquierda
     leftModalButton.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + dataSrc.length) % dataSrc.length;
-      modalImage.src = dataSrc[currentIndex] ?? dataSrc[dataSrc.length - 1];
+      currentIndex = ((currentIndex - 1) < 0) ? (dataSrc.length - 1) : (currentIndex - 1);
+      modalImage.src = dataSrc[currentIndex] ?? imageNotFound.src;
     });
 
     // Cerrar modal al hacer clic fuera de la imagen

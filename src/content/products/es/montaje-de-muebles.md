@@ -15,7 +15,7 @@ tabs:
     title: "Descripción"
   - id: "tabs-with-card-item-2"
     dataTab: "#tabs-with-card-2"
-    title: "Muebles"
+    title: "Imágenes"
 longDescription:
   title: "Montaje de Muebles"
   subTitle: |
@@ -66,11 +66,11 @@ specificationsRight:
   - title: "Mesita de noche"
     subTitle: "@/images/mesita-de-noche.jpg"
   - title: "Mueble de baño"
-    subTitle: "@/images/mueble-de-baño.jpg"
+    subTitle: "@/images/mueble-de-banio.jpg"
   - title: "Repisa"
     subTitle: "@/images/repisa.jpg"
   - title: "Sofá baúl"
-    subTitle: "@/images/sofa-baúl.jpeg"
+    subTitle: "@/images/sofa-baul.jpg"
   - title: "Sofá cama"
     subTitle: "@/images/sofa-cama.jpg"
   - title: "Sofá simple"

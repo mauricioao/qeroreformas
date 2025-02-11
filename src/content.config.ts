@@ -45,7 +45,7 @@ const productsCollection = defineCollection({
         title: z.string(),
         subTitle: image(),
       })
-    ),
+    ).optional(),
     specificationsRight: z.array(
       z.object({
         title: z.string(),

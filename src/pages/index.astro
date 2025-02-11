@@ -3,14 +3,14 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 
 import HeroSection from "@components/sections/landing/HeroSection.astro";
-// import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
-import ClientsSection from "@components/sections/landing/ClientsSection.astro";
 import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
 import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
+import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
+// import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
+// import ClientsSection from "@components/sections/landing/ClientsSection.astro";
 // import FAQ from "@components/sections/misc/FAQ.astro";
 // import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
 // import PricingSection from "@components/sections/pricing/PricingSection.astro";
-import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
 
 import heroImage from "@images/hero-image.png";
 import featureImage from "@images/features-image.png";
@@ -20,7 +20,7 @@ import features from "@data/features.json";
 import general from '@/utils/general.ts';
 // import pricing from "@data/pricing.json";
 
-import { partnersData } from "@/data_files/constants";
+// import { partnersData } from "@/data_files/constants";
 // import Image from "astro/components/Image.astro";
 
 // const avatarSrcs: Array<string> = [
@@ -37,7 +37,7 @@ import { partnersData } from "@/data_files/constants";
 <MainLayout>
   <AnnouncementBanner
     btnId="dismiss-button"
-    btnTitle="Utiliza nuestra Calculadora Online 📈"
+    btnTitle="Calculadora Online - Arma tu presupuesto 📈"
     url="/calculadora"
   />
 
@@ -110,11 +110,11 @@ import { partnersData } from "@/data_files/constants";
 
   <!-- <PricingSection pricing={pricing} /> -->
   
-  <ClientsSection
+  <!-- <ClientsSection
   title="La confianza de nuestros clientes"
   subTitle="Experimente la fiabilidad elegida por los gigantes del sector."
   partners={partnersData}
-  />
+  /> -->
 
   <!-- <HeroSectionAlt
     title="Let's Build Together"
