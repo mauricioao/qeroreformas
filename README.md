@@ -1,14 +1,13 @@
-# Qero | Reformas y Decoración
+# Qero Reformas y Decoración | Proyecto Landing Page
 
-![ScrewFast](https://imgur.com/gallery/construction-vEHAYID)
+![QeroReformas](https://i.imgur.com/Ti1p3GH.png)
 
-ScrewFast is an **open-source template** designed for quick and efficient web project setup, blending **minimalism with functionality**. Whether you're showcasing a portfolio, launching a company landing page, or running a blog, ScrewFast provides everything you need. By combining the power of the [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/), and [Preline UI](https://preline.co/), this template offers a functional and aesthetically pleasing solution for your web presence.
+En QERO Reformas y Decoración transformamos hogares en espacios únicos y funcionales. Somos una empresa especializada en reformas de cocina, diseño de mobiliario personalizado y servicios integrales (manitas) en la comunidad de Madrid y alrededores. Brindamos soluciones modernas, eficientes y adaptadas a las necesidades de cada familia, con un firme compromiso con la calidad, la satisfacción del cliente y la formación constante de nuestro equipo.
 
-**[View Live Demo](https://screwfast.uk)**
+**[View Oficial URL](https://qeroreformas.com)**
 
 ## Table of Contents
 
-* [Why Choose ScrewFast?](#why-choose-screwfast)
 * [What's New](#whats-new)
 * [Getting Started](#getting-started)
   * [Installation](#installation)
@@ -51,11 +50,6 @@ ScrewFast is an **open-source template** designed for quick and efficient web pr
 * [Contributing](#contributing)
 * [License](#license)
 
-## Why Choose ScrewFast?
-
-* **Efficient Architecture:** Deploy faster with a template that's simple to set up and navigate.
-* **Optimized for Small Projects:** Perfect for crisp, professional web personas without excess complexity.
-* **Highly Customizable:** Flexibly adapt and style your site using Astro and Tailwind CSS.
 
 ### Features
 
@@ -70,21 +64,6 @@ ScrewFast is an **open-source template** designed for quick and efficient web pr
 
 ## What's New
 
-* [x] **Social Share Component**:
-  * Enables users to share blog posts on social media platforms.
-  * Provides easy sharing of a blog post's title and URL.
-  * Integrates Clipboard.js for easy link copying.
-
-* [x] **Bookmark Button Component**:
-  * Allows users to bookmark blog posts for later reference using `localStorage`.
-  * Provides a visual indication of whether a post is bookmarked.
-  * For SSR, replace `localStorage` with cookies to persist bookmarked posts.
-    * This setup opens up the possibility for the server to dynamically render content based on user-specific bookmarks, should you choose to implement this feature.
-
-* [x] **Post Feedback Component**:
-  * Collects user feedback at the end of blog posts.
-  * Serves as a UI demonstration (no back-end integration currently).
-  
 * [x] **Starlight Documentation Theme Integration**:
   * A sleek, user-friendly, full-featured documentation theme, which enhances the readability and usability of documentation.
   * Enhances readability and usability of documentation with features like site navigation, search, dark mode, code highlighting, and internationalization support.
@@ -93,10 +72,6 @@ ScrewFast is an **open-source template** designed for quick and efficient web pr
   * Centralizes SVG icons for easy management and updates.
   * Render any pre-defined icon SVG using `<Icon name="iconName" />` in your Astro components.
   * **Note:** Developers have the option to use other community integrations like [astro-icons](https://github.com/natemoo-re/astro-icon). However, the author decided to create a custom icon set component for managing custom icons.
-
-* [x] **Internationalization (i18n) Features**:
-  * Integrates [Astro's i18n features](https://docs.astro.build/en/guides/internationalization/) and includes a custom `LanguagePicker` component.
-  * Developers can access the monolingual version directly from [`monolingual-site` branch](https://github.com/mearashadowfax/ScrewFast/tree/monolingual-site).
 
 * [x] **Dynamic Table of Contents (ToC) with Scroll Progress Indicator**:
   * Highlights the relevant section in the ToC with a scroll progress indicator. 
@@ -213,134 +188,11 @@ public/
     
 ```
 
-## Customization
-
-ScrewFast allows for easy customization to suit your specific needs. Here are a couple of ways you can configure components and content:
-
-### Editing Component Variables
-
-Some components have properties defined as TypeScript variables within the component file. Here's an example of customizing the `FeaturesGeneral` component:
-
-```typescript
-// Define the string variables title and subTitle for the main heading and sub-heading text.
-const title: string = "Meeting Industry Demands";
-const subTitle: string =
-  "At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors.";
-```
-
-For collections of content like testimonials or statistics, edit the corresponding array of objects:
-
-```typescript
-// An array of testimonials
-const testimonials: Testimonial[] = [...];
-
-// An array of statistics
-const statistics: StatProps[] = [...];
-```
-
-Modify the content within these arrays to reflect your data.
-
-### Props in Component Instances
-
-You can pass values to props directly in the page files for components used across pages. Here's an example of a `HeroSection` and `ClientsSection` component with inline props:
-
-```html
-<HeroSection
-  subTitle="Top-quality hardware tools and expert construction services for every project need."
-  primaryBtn="Start Exploring"
-  primaryBtnURL="/explore"
-/>
-
-<ClientsSection
-  title="Trusted by Industry Leaders"
-  subTitle="Experience the reliability chosen by industry giants."
-/>
-```
-
-Edit the props such as `title`, `subTitle`, `primaryBtn`, etc., to personalize these sections. Ensure that you maintain the structure and data types of the props.
-
-### Customizing Navigation and Footer Links
-
-Edit the `navigation.ts` file within the `utils` directory to manage navigation bar and footer links:
-
-#### Navigation Bar Links
-
-Edit the `navBarLinks` array to adjust navigation bar links:
-
-```typescript
-// An array of links for the navigation bar
-export const navBarLinks: NavLink[] = [
-  { name: "Home", url: "/" },
-  { name: "Products", url: "/products" },
-  { name: "Services", url: "/services" },
-  { name: "Blog", url: "/blog" },
-  { name: "Contact", url: "/contact" },
-];
-```
-
-Replace `name` with the display text and `url` with the appropriate path to pages on your site.
-
-#### Footer Links
-
-Similarly, adjust the links displayed in the footer by editing the `footerLinks` array:
-
-```typescript
-// An array of links for the footer
-export const footerLinks: FooterLinkSection[] = [
-  {
-    section: "Product",
-    links: [
-      { name: "Tools & Equipment", url: "/tools-equipment" },
-      { name: "Construction Services", url: "/construction-services" },
-      { name: "Pricing", url: "/pricing" },
-    ],
-  },
-  {
-    section: "Company",
-    links: [
-      { name: "About us", url: "/about" },
-      { name: "Blog", url: "/blog" },
-      { name: "Careers", url: "/careers" },
-      { name: "Customers", url: "/customers" },
-    ],
-  },
-];
-```
-
-Each section within the `footerLinks` array represents a group of links. Update the `section` value for the group heading and modify each link's `name` and `url` as needed.
-
-#### Social Media Links
-
-Replace the placeholder URLs in the `socialLinks` object with your social media profiles:
-
-```typescript
-// An object of links for social icons
-export const socialLinks: SocialLinks = {
-  facebook: "#",
-  twitter: "#",
-  github: "#",
-  linkedin: "#",
-  instagram: "#",
-};
-```
-
-> [!NOTE]
-> Remember to add complete and valid URLs for the navigation to function properly. These customizations will reflect throughout your Astro site, promoting consistency across all pages.
-
-#### Additional Components
-
-We have two options for the navigation bar components: `Navbar.astro` for a regular navbar and `NavbarMegaMenu.astro` for a mega menu. Both are located in `src/components/sections/navbar&footer`.
-
-The `Navbar.astro` and `NavbarMegaMenu.astro` components can be configured within `MainLayout.astro`, allowing you to choose the style of navigation that best suits your project. To customize these components, you can modify them directly under `src/components/sections/navbar&footer` to apply specific configurations or design updates.
-
-![ScrewFast MegaMenu](https://github.com/user-attachments/assets/690482af-f1a4-4ebf-be58-eca0b5862973)
-
-
 ## Integrations and Enhancements
 
 ### Starlight Documentation
 
-ScrewFast is now equipped with Starlight, designed to elevate the user experience with documentation. This modern and elegant theme includes a suite of features to make content more accessible and enjoyable to navigate.
+This poroject is now equipped with Starlight, designed to elevate the user experience with documentation. This modern and elegant theme includes a suite of features to make content more accessible and enjoyable to navigate.
 
 Key Features:
 
