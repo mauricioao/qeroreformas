@@ -62,7 +62,7 @@ const crafted: string = Astro.currentLocale === "en" ? "Crafted by" : "Elaborado
           {sectionThreeTitle}
         </h3>
 
-        <form>
+        <form id="formFooter">
           <EmailFooterInput />
           <p class="mt-3 text-sm text-neutral-600 dark:text-neutral-400">
             {sectionThreeContent}
@@ -125,3 +125,31 @@ const crafted: string = Astro.currentLocale === "en" ? "Crafted by" : "Elaborado
     </script>
   </div>
 </footer>
+
+<script is:inline>
+  const formFooter = document.getElementById("formFooter");
+
+  formFooter.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+
+    let templateParams = {
+      nombre: "Sin Especificar",
+      apellido: "",
+      telefono: "Sin especificar",
+      email: data.email,
+      message: "Enviado desde la web: qeroreformas.com",
+    };
+
+    emailjs.send("service_uf0bunm","template_ptjbynb", templateParams).then(
+      function (response) {
+        alert("Se ha enviado el mensaje satisfactoriamente, ¡Gracias por su preferencia!");
+        console.log("Correo enviado", response);
+      },
+      function (error) {
+        console.error("Error", error);
+      }
+    );
+  });
+</script>

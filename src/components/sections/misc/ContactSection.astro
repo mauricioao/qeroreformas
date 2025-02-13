@@ -40,26 +40,26 @@ const formSubTitle: string =
         </h2>
         <!-- Form for user input with various input fields.-->
         <!-- Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)-->
-        <form>
+        <form id="formContacto">
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextInput
                 id="hs-firstname-contacts"
                 label="Apellidos"
-                name="hs-firstname-contacts"
+                name="apellido"
               />
               <TextInput
                 id="hs-lastname-contacts"
                 label="Nombres"
-                name="hs-firstname-contacts"
+                name="nombre"
               />
             </div>
-            <EmailContactInput id="hs-email-contacts" />
-            <PhoneInput id="hs-phone-number" />
+            <EmailContactInput id="hs-email-contacts" name="email" />
+            <PhoneInput id="hs-phone-number" name="telefono" />
             <TextAreaInput
               id="hs-about-contacts"
               label="Detalles"
-              name="hs-about-contacts"
+              name="message"
             />
           </div>
 
@@ -109,11 +109,39 @@ const formSubTitle: string =
           heading="Póngase en contacto con nosotros por correo electrónico"
           content="¿Prefiere un texto escrito? Envíenos un correo electrónico a"
           isLinkVisible={true}
-          linkTitle="contacto@reformaswero.com"
-          linkURL="mailto:contacto@reformaswero.com"
+          linkTitle="ventas"
+          linkURL="mailto:ventas@qeroreformas.com"
           ><Icon name="envelopeOpen" />
         </ContactIconBlock>
       </div>
     </div>
   </div>
 </section>
+
+<script is:inline>
+  const formContacto = document.getElementById("formContacto");
+
+  formContacto.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+
+    let templateParams = {
+      nombre: data.nombre,
+      apellido: data.apellido,
+      telefono: data.telefono,
+      email: data.email,
+      message: data.message,
+    };
+
+    emailjs.send("service_uf0bunm","template_ptjbynb", templateParams).then(
+      function (response) {
+        alert("Se ha enviado el mensaje satisfactoriamente, ¡Gracias por su preferencia!");
+        console.log("Correo enviado", response);
+      },
+      function (error) {
+        console.error("Error", error);
+      }
+    );
+  });
+</script>

@@ -1,7 +1,7 @@
 
 // Import necessary images featuresNavs
 import muebles from "@images/montaje-muebles.jpg";
-import diseño from "@images/muebles-diseño.jpg";
+import diseño from "@images/muebles-disenio.jpg";
 import electro from "@images/cocinas-electro.jpg";
 import reformas from "@images/reformas-vivienda.jpg";
 import acabados from "@images/acabados-papel-pintado.jpg";
@@ -32,6 +32,12 @@ interface Article {
   imgOneAlt?: string;
   imgTwo?: any;
   imgTwoAlt?: string;
+}
+
+interface EmailJS {
+  key: string;
+  service: string;
+  template: string;
 }
 
 // An array of links for navigation bar
@@ -154,7 +160,14 @@ const articles: Article[] = [
   },
 ];
 
+const emailjs: EmailJS = {
+  key:  "buPDmH_xE0zSZ7Z6q",
+  service: 'service_uf0bunm',
+  template: "template_gvvz1mw"
+};
+
 export default {
   featuresNavs,
   articles,
+  emailjs,
 };

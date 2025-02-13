@@ -651,4 +651,30 @@ export const Icons = {
     strokeLinecap: "round",
     strokeLinejoin: "round",
   },
+  // premium: {
+  //   paths: [
+  //     {
+  //       d: "M12 16c-5.76 0-6.78-5.74-6.96-10.294c-.051-1.266-.076-1.9.4-2.485c.475-.586 1.044-.682 2.183-.874A26.4 26.4 0 0 1 12 2c1.784 0 3.253.157 4.377.347c1.139.192 1.708.288 2.184.874s.45 1.219.4 2.485C18.781 10.26 17.761 16 12.001 16Z"
+  //     },
+  //     {
+  //       d: "M12 16v3",
+  //       opacity: 0.5
+  //     },
+  //   ],
+  //   g: [
+  //     {fill: "none",
+  //     stroke: "currentColor",
+  //     strokeWidth: "1.5",}
+  //   ],
+  //   class: "h-6 w-6 flex-shrink-0 fill-neutral-700 hs-tab-active:fill-orange-300 dark:fill-neutral-300 dark:hs-tab-active:fill-rose-400 md:h-7 md:w-7",
+  //   viewBox: "0 0 24 24",
+  //   fill: "none",
+  //   stroke: "currentColor",
+  //   strokeWidth: "1.5",
+  //   strokeLinecap: "round",
+  //   strokeLinejoin: "round",
+  //   with: "24",
+  //   height: "24",
+  //   xmlns: "http://www.w3.org/2000/svg",
+  // },
 };
